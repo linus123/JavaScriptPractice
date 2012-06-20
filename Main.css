@@ -1,0 +1,14 @@
+.form div label{
+    font-family: Arial;
+    width: 100px;
+    float: left;
+    display: block;
+    text-align: right;
+    margin-right: 10px;
+    padding-top: 2px;
+}
+
+.form div input{
+    font-family: Arial;
+    width: 50px;
+}

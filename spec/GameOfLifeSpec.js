@@ -241,4 +241,23 @@ describe("Evolve for single cells in left edge of grid", function() {
         GameOfLife.evolve(grid);
         expect(grid.isCellLive(2, 1)).toEqual(true);
     });
+
+    it("should foo", function () {
+        var foo = 1;
+
+        (function(){
+            var foo = "value";
+            console.log(foo);
+        })();
+
+        console.log(foo);
+
+        var bax = [1, 2, 3, 4];
+
+        _.forEach(bax, function(v) {
+            console.log(v);
+        });
+
+    });
+
 });
