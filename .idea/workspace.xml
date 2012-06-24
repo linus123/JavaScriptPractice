@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5b5e355-fc41-42e7-a125-627c5e083a99" name="Default" comment="" />
+    <list default="true" id="e5b5e355-fc41-42e7-a125-627c5e083a99" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameOfLifeUi.html" afterPath="$PROJECT_DIR$/GameOfLifeUi.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameOfLife.js" afterPath="$PROJECT_DIR$/src/GameOfLife.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameOfLifeUi.js" afterPath="$PROJECT_DIR$/src/GameOfLifeUi.js" />
+    </list>
     <ignored path="GameOfLifeJavaScript.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpecRunner.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SpecRunner.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpecRunner.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="33" selection-start="538" selection-end="538" vertical-scroll-proportion="0.08">
+            <state line="11" column="33" selection-start="538" selection-end="538" vertical-scroll-proportion="-2.5">
               <folding />
             </state>
           </provider>
@@ -52,7 +57,7 @@
       <file leaf-file-name="GameOfLifeUi.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameOfLifeUi.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="9" selection-start="491" selection-end="491" vertical-scroll-proportion="-11.875">
+            <state line="33" column="57" selection-start="940" selection-end="940" vertical-scroll-proportion="-20.625">
               <folding />
             </state>
           </provider>
@@ -61,16 +66,16 @@
       <file leaf-file-name="GameOfLife.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameOfLife.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="0" selection-start="2832" selection-end="2832" vertical-scroll-proportion="0.0">
+            <state line="97" column="0" selection-start="2972" selection-end="2972" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameOfLifeUi.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameOfLifeUi.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameOfLifeUi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="3" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
+            <state line="71" column="22" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.91085273">
               <folding />
             </state>
           </provider>
@@ -100,12 +105,12 @@
       <list>
         <option value="$PROJECT_DIR$/spec/GameOfLife.js" />
         <option value="$PROJECT_DIR$/SpecRunner.html" />
-        <option value="$PROJECT_DIR$/src/GameOfLife.js" />
         <option value="$PROJECT_DIR$/spec/GameOfLifeSpec.js" />
         <option value="$PROJECT_DIR$/GameOfLife.html" />
         <option value="$PROJECT_DIR$/Main.css" />
-        <option value="$PROJECT_DIR$/src/GameOfLifeUi.js" />
+        <option value="$PROJECT_DIR$/src/GameOfLife.js" />
         <option value="$PROJECT_DIR$/GameOfLifeUi.html" />
+        <option value="$PROJECT_DIR$/src/GameOfLifeUi.js" />
       </list>
     </option>
   </component>
@@ -215,6 +220,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameOfLifeJavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScriptPractice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -287,12 +306,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32589287" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17078334" sideWeight="0.8014981" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17078334" sideWeight="0.8014981" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -386,6 +405,32 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="21" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpecRunner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="33" selection-start="538" selection-end="538" vertical-scroll-proportion="-2.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameOfLife.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="0" selection-start="2972" selection-end="2972" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameOfLifeUi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="57" selection-start="940" selection-end="940" vertical-scroll-proportion="-20.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/spec/GameOfLifeSpec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -393,33 +438,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameOfLifeUi.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="3" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="21" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameOfLife.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="0" selection-start="2832" selection-end="2832" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameOfLifeUi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="9" selection-start="491" selection-end="491" vertical-scroll-proportion="-11.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SpecRunner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="33" selection-start="538" selection-end="538" vertical-scroll-proportion="0.08">
+        <state line="71" column="22" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.91085273">
           <folding />
         </state>
       </provider>

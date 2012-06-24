@@ -6,7 +6,14 @@
 
     <link rel="stylesheet" type="text/css" href="Main.css">
     <script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="src/GameOfLife.js"></script>
     <script type="text/javascript" src="src/GameOfLifeUi.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            GameOfLifeUi.init();
+        });
+    </script>
 
 </head>
 <body>
@@ -14,18 +21,19 @@
 <div class="form">
     <div>
         <label>Width:</label>
-        <input type="text" />
+        <input type="text" id="widthTextBox" />
     </div>
 
     <div>
         <label>Height:</label>
-        <input type="text" />
+        <input type="text" id="heightTextBox" />
     </div>
 </div>
 
 <div><input type="button" value="Reset Grid" id="resetButton" /></div>
+<div><input type="button" value="Evolve" id="evolveButton" /></div>
 
-<div id="GridDiv"></div>
+<div id="gridDiv"></div>
 
 </body>
 </html>

@@ -173,4 +173,3 @@ var GameOfLife = (
 
         return gameOfLife;
     })();
-
