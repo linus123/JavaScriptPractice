@@ -19,10 +19,12 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
 
     this.ReportGroupItemView = Backbone.View.extend({
         tagName: "li",
-        template: _.template($('#reportGroupItemTemplate').html()),
         render:function (eventName) {
             $(this.el).html(this.template(this.model.toJSON()));
             return this;
+        },
+        initialize:function () {
+            this.template = _.template($('#reportGroupItemTemplate').html());
         }
     });
 
@@ -41,12 +43,22 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
         }
     });
 
-    var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
-    this.reportGroups = new this.ReportGroupCollection(testReportGroups);
+    this.Main = Backbone.Router.extend({
 
-    this.reportGroupListView = new this.ReportGroupListView({model:this.reportGroups});
+        routes:{
+            "":"list"
+        },
+
+        list:function () {
+            var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
+            self.reportGroups = new self.ReportGroupCollection(testReportGroups);
+            self.reportGroupListView = new self.ReportGroupListView({model:self.reportGroups});
+            self.reportGroupListView.render();
+        }
+    });
 
     this.start = function(){
-        this.reportGroupListView.render();
+        var mainApp = new this.Main();
+        Backbone.history.start();
     };
 };

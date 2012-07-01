@@ -9,28 +9,25 @@
     <script type="text/javascript" src="lib/underscore.js"></script>
     <script type="text/javascript" src="lib/backbone.js"></script>
 
-    <!-- include spec files here... -->
-    <!--<script type="text/javascript" src="src/GameOfLife.js"></script>-->
+    <script type="text/javascript" src="src/ReportGroupTestDataCreator.js"></script>
+    <script type="text/javascript" src="src/ReportGroupApplication.js"></script>
 
     <script type="text/javascript">
 
         $(document).ready(function(){
-
+            var app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+            app.start();
         });
 
     </script>
 
 <body>
 
-
     <ul id="reportGroupList"></ul>
 
-    <script type="text/template" id="moobar">
-        <li><%= id %> - <%= name %></li>
+    <script type="text/template" id="reportGroupItemTemplate">
+        <%= id %> - <%= name %>
     </script>
-
-    <script type="text/javascript" src="src/ReportGroupTestDataCreator.js"></script>
-    <script type="text/javascript" src="src/ReportGroupApplication.js"></script>
 
 
 </body>
