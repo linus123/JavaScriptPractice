@@ -1,56 +1,53 @@
-var ReportGroupApplication = (
-    function($, _, Backbone, ReportGroupTestDataCreator){
+var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator){
 
-        var reportGroupApplication = {};
+    var self = this;
 
-        reportGroupApplication.ReportType = {
-            equity: {
-                name: "Equity"
-            },
-            fixedIncome: {
-                name: "Fixed Income"
-            }
-        };
+    this.ReportType = {
+        equity: {
+            name: "Equity"
+        },
+        fixedIncome: {
+            name: "Fixed Income"
+        }
+    };
 
-        reportGroupApplication.reports = ReportGroupTestDataCreator.createReports();
+    this.reports = ReportGroupTestDataCreator.createReports();
 
-        reportGroupApplication.ReportGroup = Backbone.Model.extend({});
+    this.ReportGroup = Backbone.Model.extend({});
 
-        reportGroupApplication.ReportGroupCollection = Backbone.Collection.extend({
-            model: reportGroupApplication.ReportGroup
-        });
+    this.ReportGroupCollection = Backbone.Collection.extend({
+        model: this.ReportGroup
+    });
 
-        reportGroupApplication.ReportGroupListView = Backbone.View.extend({
-            el: $("#reportGroupList"),
+    this.ReportGroupItemView = Backbone.View.extend({
+        tagName: "li",
+        template: _.template($('#moobar').html()),
+        render:function (eventName) {
+            $(this.el).html(this.template(this.model.toJSON()));
+            return this;
+        }
+    });
 
-            initialize:function () {
-                this.model.bind("reset", this.render, this);
-            },
+    this.ReportGroupListView = Backbone.View.extend({
+        el: $("#reportGroupList"),
 
-            render:function (eventName) {
-                _.each(this.model.models, function (reportGroup) {
-                    $(this.el).append(new reportGroupApplication.ReportGroupItemView({model:reportGroup}).render().el);
-                }, this);
-                return this;
-            }
-        });
+        initialize:function () {
+            this.model.bind("reset", this.render, this);
+        },
 
-        reportGroupApplication.ReportGroupItemView = Backbone.View.extend({
-            tagName: "li",
-            template: _.template($('#moobar').html()),
-            render:function (eventName) {
-                $(this.el).html(this.template(this.model.toJSON()));
-                return this;
-            }
-        });
+        render:function (eventName) {
+            _.each(this.model.models, function (reportGroup) {
+                $(this.el).append(new self.ReportGroupItemView({model:reportGroup}).render().el);
+            }, this);
+            return this;
+        }
+    });
 
-        var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
+    var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
 
-        reportGroupApplication.reportGroups = new reportGroupApplication.ReportGroupCollection(testReportGroups);
+    this.reportGroups = new this.ReportGroupCollection(testReportGroups);
 
-        reportGroupApplication.reportGroupListView = new reportGroupApplication.ReportGroupListView({model:reportGroupApplication.reportGroups});
-        reportGroupApplication.reportGroupListView.render();
+    this.reportGroupListView = new this.ReportGroupListView({model:this.reportGroups});
+//    this.reportGroupListView.render();
 
-        return reportGroupApplication;
-    }
-    )($, _, Backbone, ReportGroupTestDataCreator);
+};

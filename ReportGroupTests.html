@@ -14,12 +14,10 @@
     <script type="text/javascript" src="lib/backbone.js"></script>
 
     <!-- include spec files here... -->
-    <!--<script type="text/javascript" src="src/GameOfLife.js"></script>-->
     <script type="text/javascript" src="src/ReportGroupTestDataCreator.js"></script>
     <script type="text/javascript" src="src/ReportGroupApplication.js"></script>
 
     <!-- include source files here... -->
-    <!--<script type="text/javascript" src="spec/GameOfLifeSpec.js"></script>-->
     <script type="text/javascript" src="spec/ReportGroupApplicationSpec.js"></script>
 
     <script type="text/javascript">
@@ -49,6 +47,14 @@
             }
 
         })();
+    </script>
+
+    <!-- *********** -->
+
+    <ul id="reportGroupList"></ul>
+
+    <script type="text/template" id="moobar">
+        <li><%= id %> - <%= name %></li>
     </script>
 
 </head>

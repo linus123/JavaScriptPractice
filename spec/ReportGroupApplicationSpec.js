@@ -1,51 +1,82 @@
 describe("Report Types", function(){
+
+    var app;
+
+    beforeEach(function(){
+        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+    });
+
     it("should have static equity property", function(){
-        expect(ReportGroupApplication.ReportType.equity).toBeDefined();
+        expect(app.ReportType.equity).toBeDefined();
     });
 
     it("should have equity object with expected properties", function(){
-        expect(ReportGroupApplication.ReportType.equity.name).toEqual("Equity");
+        expect(app.ReportType.equity.name).toEqual("Equity");
     });
 
     it("should have fixed income property", function () {
-        expect(ReportGroupApplication.ReportType.fixedIncome).toBeDefined();
+        expect(app.ReportType.fixedIncome).toBeDefined();
     });
 
     it("should have fixed income object with name property", function () {
-        expect(ReportGroupApplication.ReportType.fixedIncome.name).toEqual("Fixed Income");
+        expect(app.ReportType.fixedIncome.name).toEqual("Fixed Income");
     });
 });
 
 describe("reports array", function(){
+    var app;
+
+    beforeEach(function(){
+        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+    });
+
     it("should be defined", function () {
-        expect(ReportGroupApplication.reports).toBeDefined();
+        expect(app.reports).toBeDefined();
     });
 
     it("should have some values in the array", function () {
-        expect(ReportGroupApplication.reports.length).toBeGreaterThan(0);
+        expect(app.reports.length).toBeGreaterThan(0);
     });
 });
 
 describe("ReportGroup class", function(){
+    var app;
+
+    beforeEach(function(){
+        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+    });
+
     it("should support new", function () {
-        var g = new ReportGroupApplication.ReportGroup();
+        var g = new app.ReportGroup();
 
         expect(g).toBeDefined();
     });
 });
 
 describe("ReportGroupCollection class", function(){
+    var app;
+
+    beforeEach(function(){
+        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+    });
+
     it("should support new", function () {
-        var c = new ReportGroupApplication.ReportGroupCollection();
+        var c = new app.ReportGroupCollection();
 
         expect(c).toBeDefined();
     });
 });
 
-describe("ReportGroupListView class", function(){
-    it("should support new", function () {
-        var v = new ReportGroupApplication.ReportGroupListView();
-
-        expect(v).toBeDefined();
-    });
-});
+//describe("ReportGroupListView class", function(){
+//    var app;
+//
+//    beforeEach(function(){
+//        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+//    });
+//
+//    it("should support new", function () {
+//        var v = new app.ReportGroupListView();
+//
+//        expect(v).toBeDefined();
+//    });
+//});
