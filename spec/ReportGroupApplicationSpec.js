@@ -53,10 +53,11 @@ describe("ReportGroupCollection class", function(){
 describe("ReportGroupListView", function(){
 
     var app;
+    var main;
 
     beforeEach(function(){
         app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
-        var main = new app.Main();
+        main = new app.Main();
         main.list();
     });
 
@@ -69,9 +70,20 @@ describe("ReportGroupListView", function(){
         expect(lineItemCount).toEqual(5)
     });
 
-    it("should add the correct lable to the ReportGroup list item", function () {
+    it("should add the correct label to the ReportGroup list item", function () {
         var firstItem = $("#reportGroupList li")[0];
         expect($(firstItem).text()).toContain("2 - Equity SMA US")
+    });
+
+    it("should add the correct link on the label", function () {
+        var firstItem = $("#reportGroupList li a")[0];
+        expect($(firstItem).attr("href")).toEqual("#/reportGroup/2")
+    });
+
+    it("should only allow us to list once", function () {
+        main.list();
+        var lineItemCount = $("#reportGroupList li").length;
+        expect(lineItemCount).toEqual(5)
     });
 
 });

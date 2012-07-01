@@ -19,12 +19,10 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
 
     this.ReportGroupItemView = Backbone.View.extend({
         tagName: "li",
+        template: _.template($('#reportGroupItemTemplate').html()),
         render:function (eventName) {
             $(this.el).html(this.template(this.model.toJSON()));
             return this;
-        },
-        initialize:function () {
-            this.template = _.template($('#reportGroupItemTemplate').html());
         }
     });
 
@@ -35,7 +33,7 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
             this.model.bind("reset", this.render, this);
         },
 
-        render:function (eventName) {
+        render: function (eventName) {
             _.each(this.model.models, function (reportGroup) {
                 $(this.el).append(new self.ReportGroupItemView({model:reportGroup}).render().el);
             }, this);
@@ -46,14 +44,21 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
     this.Main = Backbone.Router.extend({
 
         routes:{
-            "":"list"
+            "" : "list",
+            "reportGroup/:id" : "reportGroup"
         },
 
-        list:function () {
-            var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
-            self.reportGroups = new self.ReportGroupCollection(testReportGroups);
-            self.reportGroupListView = new self.ReportGroupListView({model:self.reportGroups});
-            self.reportGroupListView.render();
+        list: function () {
+            if (!self.reportGroups)
+            {
+                var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
+                self.reportGroups = new self.ReportGroupCollection(testReportGroups);
+                self.reportGroupListView = new self.ReportGroupListView({model:self.reportGroups});
+                self.reportGroupListView.render();
+            }
+        },
+
+        reportGroup: function(){
         }
     });
 

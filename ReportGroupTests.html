@@ -59,7 +59,9 @@
     <ul id="reportGroupList"></ul>
 
     <script type="text/template" id="reportGroupItemTemplate">
-        <%= id %> - <%= name %>
+        <a href="#/reportGroup/<%= id %>">
+            <%= id %> - <%= name %>
+        </a>
     </script>
 
 </body>
