@@ -33,3 +33,19 @@ describe("ReportGroup class", function(){
         expect(g).toBeDefined();
     });
 });
+
+describe("ReportGroupCollection class", function(){
+    it("should support new", function () {
+        var c = new ReportGroupApplication.ReportGroupCollection();
+
+        expect(c).toBeDefined();
+    });
+});
+
+describe("ReportGroupListView class", function(){
+    it("should support new", function () {
+        var v = new ReportGroupApplication.ReportGroupListView();
+
+        expect(v).toBeDefined();
+    });
+});
