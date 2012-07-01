@@ -1,82 +1,21 @@
-describe("Report Types", function(){
+describe("ReportGroupApplication", function(){
 
-    var app;
-
-    beforeEach(function(){
-        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+    beforeEach(function() {
+        var app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+        app.start();
     });
 
-    it("should have static equity property", function(){
-        expect(app.ReportType.equity).toBeDefined();
+    it("should add correct number of line items to the ReportGroup list", function(){
+        var lineItemCount = $("#reportGroupList li").length;
+        expect(lineItemCount).toEqual(5)
     });
 
-    it("should have equity object with expected properties", function(){
-        expect(app.ReportType.equity.name).toEqual("Equity");
+    it("should add the correct lable to the ReportGroup list item", function () {
+        var firstItem = $("#reportGroupList li")[0];
+        expect($(firstItem).text()).toContain("2 - Equity")
     });
 
-    it("should have fixed income property", function () {
-        expect(app.ReportType.fixedIncome).toBeDefined();
-    });
-
-    it("should have fixed income object with name property", function () {
-        expect(app.ReportType.fixedIncome.name).toEqual("Fixed Income");
+    afterEach(function(){
+        $("#reportGroupList li").remove();
     });
 });
-
-describe("reports array", function(){
-    var app;
-
-    beforeEach(function(){
-        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
-    });
-
-    it("should be defined", function () {
-        expect(app.reports).toBeDefined();
-    });
-
-    it("should have some values in the array", function () {
-        expect(app.reports.length).toBeGreaterThan(0);
-    });
-});
-
-describe("ReportGroup class", function(){
-    var app;
-
-    beforeEach(function(){
-        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
-    });
-
-    it("should support new", function () {
-        var g = new app.ReportGroup();
-
-        expect(g).toBeDefined();
-    });
-});
-
-describe("ReportGroupCollection class", function(){
-    var app;
-
-    beforeEach(function(){
-        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
-    });
-
-    it("should support new", function () {
-        var c = new app.ReportGroupCollection();
-
-        expect(c).toBeDefined();
-    });
-});
-
-//describe("ReportGroupListView class", function(){
-//    var app;
-//
-//    beforeEach(function(){
-//        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
-//    });
-//
-//    it("should support new", function () {
-//        var v = new app.ReportGroupListView();
-//
-//        expect(v).toBeDefined();
-//    });
-//});

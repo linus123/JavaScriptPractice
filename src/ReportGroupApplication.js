@@ -11,8 +11,6 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
         }
     };
 
-    this.reports = ReportGroupTestDataCreator.createReports();
-
     this.ReportGroup = Backbone.Model.extend({});
 
     this.ReportGroupCollection = Backbone.Collection.extend({
@@ -21,7 +19,7 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
 
     this.ReportGroupItemView = Backbone.View.extend({
         tagName: "li",
-        template: _.template($('#moobar').html()),
+        template: _.template($('#reportGroupItemTemplate').html()),
         render:function (eventName) {
             $(this.el).html(this.template(this.model.toJSON()));
             return this;
@@ -44,10 +42,11 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
     });
 
     var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
-
     this.reportGroups = new this.ReportGroupCollection(testReportGroups);
 
     this.reportGroupListView = new this.ReportGroupListView({model:this.reportGroups});
-//    this.reportGroupListView.render();
 
+    this.start = function(){
+        this.reportGroupListView.render();
+    };
 };
