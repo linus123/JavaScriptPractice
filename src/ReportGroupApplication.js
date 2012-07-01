@@ -1,5 +1,5 @@
 var ReportGroupApplication = (
-    function(Backbone){
+    function(Backbone, ReportGroupTestDataCreator){
 
         var reportGroupApplication = {};
 
@@ -12,10 +12,10 @@ var ReportGroupApplication = (
             }
         };
 
-        reportGroupApplication.Report = Backbone.Model.extend({});
+        reportGroupApplication.reports = ReportGroupTestDataCreator.createReports();
 
         reportGroupApplication.ReportGroup = Backbone.Model.extend({});
 
         return reportGroupApplication;
     }
-    )(Backbone);
+    )(Backbone, ReportGroupTestDataCreator);

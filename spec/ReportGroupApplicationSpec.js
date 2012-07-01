@@ -16,11 +16,13 @@ describe("Report Types", function(){
     });
 });
 
-describe("Report class", function(){
-    it("should support new", function () {
-        var r = new ReportGroupApplication.Report();
+describe("reports array", function(){
+    it("should be defined", function () {
+        expect(ReportGroupApplication.reports).toBeDefined();
+    });
 
-        expect(r).toBeDefined();
+    it("should have some values in the array", function () {
+        expect(ReportGroupApplication.reports.length).toBeGreaterThan(0);
     });
 });
 
