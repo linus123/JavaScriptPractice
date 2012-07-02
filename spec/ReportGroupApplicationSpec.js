@@ -88,14 +88,13 @@ describe("ReportGroupListView", function(){
 
 });
 
-describe("ReviewGroupEditView", function(){
+describe("ReviewGroupEditView when id given in url", function(){
     var app;
     var main;
 
     beforeEach(function(){
         app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
         main = new app.Main();
-        main.list();
         main.reportGroup(2);
     });
 
@@ -105,10 +104,37 @@ describe("ReviewGroupEditView", function(){
     });
 
     it("should set the id input", function () {
-        expect($("#id").val()).toEqual("2");
+        expect($("#id").text()).toEqual("2");
     });
 
     it("should set the name input", function () {
         expect($("#name").val()).toEqual("Equity SMA US");
     });
+});
+
+describe("ReviewGroupEditView when edit is made", function(){
+    var app;
+    var main;
+
+    beforeEach(function(){
+        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+        main = new app.Main();
+        main.reportGroup(2);
+        $("#name").val("123");
+        $("#saveButton").click();
+    });
+
+    afterEach(function(){
+        $("#reportGroupList li").remove();
+        $("#formDiv div").remove();
+    });
+
+    it("should set the name property", function () {
+        var reportGroup = app.reportGroups.get(2);
+        expect(reportGroup.get("name")).toEqual("123");
+    });
+
+    it("should change the name of the changed list itme", function () {
+        var firstItem = $("#reportGroupList li")[0];
+        expect($(firstItem).text()).toContain("2 - 123")    });
 });

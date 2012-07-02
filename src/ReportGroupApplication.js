@@ -19,10 +19,22 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
 
     this.ReportGroupItemView = Backbone.View.extend({
         tagName: "li",
+
         template: _.template($('#reportGroupItemTemplate').html()),
+
+        initialize:function () {
+            this.model.bind("change", this.render, this);
+            this.model.bind("destroy", this.close, this);
+        },
+
         render:function (eventName) {
             $(this.el).html(this.template(this.model.toJSON()));
             return this;
+        },
+
+        close:function () {
+            $(this.el).unbind();
+            $(this.el).remove();
         }
     });
 
@@ -43,11 +55,36 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
 
     this.ReportGroupEditView = Backbone.View.extend({
         el: $("#formDiv"),
+
         template:_.template($("#reportGroupEditTemplate").html()),
+
+        events: {
+            "click #saveButton" : "saveButtonClicked"
+
+        },
+
         render: function(eventName){
             $(this.el).html(this.template(this.model.toJSON()));
+        },
+
+        saveButtonClicked : function(){
+            this.model.set("name", $("#name").val());
+            return false;
         }
     });
+
+    var renderListView = function(){
+        var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
+        self.reportGroups = new self.ReportGroupCollection(testReportGroups);
+        self.reportGroupListView = new self.ReportGroupListView({model:self.reportGroups});
+        self.reportGroupListView.render();
+    };
+
+    var renderListViewIfNoAlreadyRendered = function(){
+        if (!self.reportGroups) {
+            renderListView();
+        }
+    }
 
     this.Main = Backbone.Router.extend({
 
@@ -57,16 +94,12 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
         },
 
         list: function () {
-            if (!self.reportGroups)
-            {
-                var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
-                self.reportGroups = new self.ReportGroupCollection(testReportGroups);
-                self.reportGroupListView = new self.ReportGroupListView({model:self.reportGroups});
-                self.reportGroupListView.render();
-            }
+            renderListViewIfNoAlreadyRendered();
         },
 
         reportGroup: function(id){
+            renderListViewIfNoAlreadyRendered();
+
             var targetReportGroup = self.reportGroups.get(id);
             var editView = new self.ReportGroupEditView({model: targetReportGroup});
             editView.render();
