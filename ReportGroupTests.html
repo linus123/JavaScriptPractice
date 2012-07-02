@@ -58,10 +58,27 @@
 
     <ul id="reportGroupList"></ul>
 
+    <div id="formDiv">
+    </div>
+
     <script type="text/template" id="reportGroupItemTemplate">
         <a href="#/reportGroup/<%= id %>">
             <%= id %> - <%= name %>
         </a>
+    </script>
+
+    <script type="text/template" id="reportGroupEditTemplate">
+        <div>
+            <label for="id">Id:</label>
+            <input type="text" id="id" value="<%= id %>" />
+        </div>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" value="<%= name %>" />
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
     </script>
 
 </body>

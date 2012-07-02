@@ -41,6 +41,14 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
         }
     });
 
+    this.ReportGroupEditView = Backbone.View.extend({
+        el: $("#formDiv"),
+        template:_.template($("#reportGroupEditTemplate").html()),
+        render: function(eventName){
+            $(this.el).html(this.template(this.model.toJSON()));
+        }
+    });
+
     this.Main = Backbone.Router.extend({
 
         routes:{
@@ -58,7 +66,10 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
             }
         },
 
-        reportGroup: function(){
+        reportGroup: function(id){
+            var targetReportGroup = self.reportGroups.get(id);
+            var editView = new self.ReportGroupEditView({model: targetReportGroup});
+            editView.render();
         }
     });
 

@@ -87,3 +87,28 @@ describe("ReportGroupListView", function(){
     });
 
 });
+
+describe("ReviewGroupEditView", function(){
+    var app;
+    var main;
+
+    beforeEach(function(){
+        app = new ReportGroupApplication($, _, Backbone, ReportGroupTestDataCreator);
+        main = new app.Main();
+        main.list();
+        main.reportGroup(2);
+    });
+
+    afterEach(function(){
+        $("#reportGroupList li").remove();
+        $("#formDiv div").remove();
+    });
+
+    it("should set the id input", function () {
+        expect($("#id").val()).toEqual("2");
+    });
+
+    it("should set the name input", function () {
+        expect($("#name").val()).toEqual("Equity SMA US");
+    });
+});
