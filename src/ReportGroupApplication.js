@@ -65,17 +65,34 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
 
         render: function(eventName){
             $(this.el).html(this.template(this.model.toJSON()));
+
+            var groupTypeSelect = $("#groupTypeSelect");
+
+            groupTypeSelect.append("<option value=''></option>");
+
+            _.each(self.reportGroupTypes, function(t) {
+                groupTypeSelect.append("<option value='" + t.code + "'>" + t.name  + "</option>");
+            });
         },
 
         saveButtonClicked : function(){
             this.model.set("name", $("#name").val());
             return false;
+        },
+
+        remove : function() {
+            $(this.el).unbind();
+            $(this.el).empty();
         }
     });
 
     var renderListView = function(){
         var testReportGroups =  ReportGroupTestDataCreator.createReportGroups();
+        self.reportGroupTypes = ReportGroupTestDataCreator.createReportGroupTypes();
         self.reportGroups = new self.ReportGroupCollection(testReportGroups);
+        if (self.reportGroupListView) {
+            self.reportGroupListView.remove();
+        }
         self.reportGroupListView = new self.ReportGroupListView({model:self.reportGroups});
         self.reportGroupListView.render();
     };
@@ -101,8 +118,13 @@ var ReportGroupApplication = function($, _, Backbone, ReportGroupTestDataCreator
             renderListViewIfNoAlreadyRendered();
 
             var targetReportGroup = self.reportGroups.get(id);
-            var editView = new self.ReportGroupEditView({model: targetReportGroup});
-            editView.render();
+
+            if (self.editView) {
+                self.editView.remove();
+                self.editView = undefined;
+            }
+            self.editView = new self.ReportGroupEditView({model: targetReportGroup});
+            self.editView.render();
         }
     });
 

@@ -110,6 +110,11 @@ describe("ReviewGroupEditView when id given in url", function(){
     it("should set the name input", function () {
         expect($("#name").val()).toEqual("Equity SMA US");
     });
+
+    it("should populate the correct number of items in the report group type drop down", function () {
+        var selectOptions = $("#groupTypeSelect option");
+        expect(selectOptions.length).toEqual(4);
+    });
 });
 
 describe("ReviewGroupEditView when edit is made", function(){
@@ -136,5 +141,6 @@ describe("ReviewGroupEditView when edit is made", function(){
 
     it("should change the name of the changed list itme", function () {
         var firstItem = $("#reportGroupList li")[0];
-        expect($(firstItem).text()).toContain("2 - 123")    });
+        expect($(firstItem).text()).toContain("2 - 123")
+    });
 });

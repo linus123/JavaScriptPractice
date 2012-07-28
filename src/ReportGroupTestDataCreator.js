@@ -1,5 +1,15 @@
 var ReportGroupTestDataCreator = {};
 
+ReportGroupTestDataCreator.createReportGroupTypes = function() {
+    var reportGroupTypes = [];
+
+    reportGroupTypes[0] = {code: "EQ", name: "Equity" };
+    reportGroupTypes[1] = {code: "FI", name: "Fixed Income" };
+    reportGroupTypes[2] = {code: "BA", name: "Balanced" };
+
+    return reportGroupTypes;
+};
+
 ReportGroupTestDataCreator.createReportGroups = function() {
     var reportGroups = [];
 
