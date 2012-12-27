@@ -139,7 +139,7 @@ describe("ReviewGroupEditView when edit is made", function(){
         expect(reportGroup.get("name")).toEqual("123");
     });
 
-    it("should change the name of the changed list itme", function () {
+    it("should change the name of the changed list time", function () {
         var firstItem = $("#reportGroupList li")[0];
         expect($(firstItem).text()).toContain("2 - 123")
     });

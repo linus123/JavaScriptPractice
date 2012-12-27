@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Jasmine Spec Runner</title>
+
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.2.0/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-1.2.0/jasmine.css">
+    <script type="text/javascript" src="lib/jasmine-1.2.0/jasmine.js"></script>
+    <script type="text/javascript" src="lib/jasmine-1.2.0/jasmine-html.js"></script>
+
+    <script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="lib/underscore.js"></script>
+    <script type="text/javascript" src="lib/backbone.js"></script>
+
+    <!-- include spec files here... -->
+    <script type="text/javascript" src="src/OneHundredDoors.js"></script>
+
+    <!-- include source files here... -->
+    <script type="text/javascript" src="spec/OneHundredDoorsSpec.js"></script>
+
+    <script type="text/javascript">
+        (function() {
+            var jasmineEnv = jasmine.getEnv();
+            jasmineEnv.updateInterval = 1000;
+
+            var htmlReporter = new jasmine.HtmlReporter();
+
+            jasmineEnv.addReporter(htmlReporter);
+
+            jasmineEnv.specFilter = function(spec) {
+                return htmlReporter.specFilter(spec);
+            };
+
+            var currentWindowOnload = window.onload;
+
+            window.onload = function() {
+                if (currentWindowOnload) {
+                    currentWindowOnload();
+                }
+                execJasmine();
+            };
+
+            function execJasmine() {
+                jasmineEnv.execute();
+            }
+
+        })();
+    </script>
+
+    <!-- *********** -->
+
+
+</head>
+
+<body>
+
+    <ul id="reportGroupList"></ul>
+
+    <div id="formDiv">
+    </div>
+
+    <script type="text/template" id="reportGroupItemTemplate">
+        <a href="#/reportGroup/<%= id %>">
+            <%= id %> - <%= name %>
+        </a>
+    </script>
+
+    <script type="text/template" id="reportGroupEditTemplate">
+        <div>
+            <label for="id">Id:</label>
+            <span id="id"><%= id %></span>
+        </div>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" value="<%= name %>" />
+        </div>
+        <div>
+            <label for="groupTypeSelect">Type:</label>
+            <select id="groupTypeSelect"></select>
+        </div>
+        <div>
+            <input type="submit" value="Save" id="saveButton" />
+        </div>
+    </script>
+
+</body>
+</html>
