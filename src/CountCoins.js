@@ -5,7 +5,7 @@ CoinTypes.Nickle = 5;
 
 function CountCoins(){
     this.getCoinCombos = function(value){
-        var combos = Array();
+        var combos = new Array();
 
         combos[0] = [{
             CoinType: CoinTypes.Penny,
