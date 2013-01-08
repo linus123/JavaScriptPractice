@@ -11,7 +11,7 @@ describe("CountCoins", function(){
 
     it("should return empty array when given 0", function () {
         var result = cc.getCoinCombos(0);
-        expect(result   .length).toEqual(0);
+        expect (result   .length).toEqual(0);
     });
 
     it("should return single penny when given one cent", function () {
