@@ -1,50 +1,128 @@
 var CoinTypes = {};
 
-CoinTypes.Penny = 1;
-CoinTypes.Nickle = 5;
-CoinTypes.Dime = 10;
-
 function CountCoins(){
 
-    this.getCoinCombos = function(value){
-        var combos = [];
+    this.getCoinCount = function(value){
 
-        var comboIndex = 0;
+        var returnArray = [];
 
-        if (value === 0){
-            return combos;
+        if (value <= 0) {
+            return returnArray;
         }
 
-        combos[comboIndex] = [{
-            CoinType: CoinTypes.Penny,
-            Count: value
-        }];
+        returnArray.push(value + " penny");
 
-        comboIndex++;
+        var nickelAndPennyCombos = addNickelAndPennyCombos(value, "");
+        returnArray = returnArray.concat(nickelAndPennyCombos);
 
-        for(var n = 0; n < Math.floor(value / 5); n++){
+        var dimeAndPennyCombos =  addDimeAndPennyCombos(value, "");
+        returnArray = returnArray.concat(dimeAndPennyCombos);
 
-            combos[comboIndex] = [];
+        var quarterAndPennyCombos =  addQuarterAndPennyCombos(value, "");
+        returnArray = returnArray.concat(quarterAndPennyCombos);
 
-            var numberOfNickles = n + 1;
+        return returnArray;
+    };
 
-            combos[comboIndex][0] = {
-                CoinType: CoinTypes.Nickle,
-                Count: numberOfNickles
-            };
+    var addQuarterAndPennyCombos = function(value, prefix) {
 
-            var numberOfPennies = (value - (numberOfNickles * 5));
+        var returnArray = [];
 
-            if (numberOfPennies > 0){
-                combos[comboIndex][1] = {
-                    CoinType: CoinTypes.Penny,
-                    Count: numberOfPennies
-                };
+        var numberOfQuarterAndPennyCombos = Math.floor(value / 25);
+
+        for (var i = 1; i <= numberOfQuarterAndPennyCombos; i++) {
+            var totalValueOfQuarters = (i * 25);
+            var m = prefix + i + " quarter";
+
+            var remain = value - totalValueOfQuarters;
+
+            if (remain > 0) {
+                m = m + " " + remain + " penny"
             }
 
-            comboIndex++;
+            returnArray.push(m);
         }
 
-        return combos;
+        for(var i = 1; i <= numberOfQuarterAndPennyCombos; i++){
+
+            var valueOfQuarters = i * 25;
+
+            var tempPrefix = prefix  + i + " quarter ";
+
+            var remain = value - valueOfQuarters;
+
+            var f = addDimeAndPennyCombos(remain, tempPrefix);
+            var returnArray = returnArray.concat(f);
+        }
+
+        for(var i = 1; i <= numberOfQuarterAndPennyCombos; i++){
+
+            var valueOfQuarters = i * 25;
+
+            var tempPrefix = prefix  + i + " quarter ";
+
+            var remain = value - valueOfQuarters;
+
+            var f = addNickelAndPennyCombos(remain, tempPrefix);
+            var returnArray = returnArray.concat(f);
+        }
+
+        return returnArray;
+    };
+
+    var addDimeAndPennyCombos = function(value, prefix) {
+
+        var returnArray = [];
+
+        var numberOfDimeAndPennyCombos = Math.floor(value / 10);
+
+        for (var i = 1; i <= numberOfDimeAndPennyCombos; i++) {
+            var totalValueOfDimes = (i * 10);
+            var m = prefix + i + " dime";
+
+            var remain = value - totalValueOfDimes;
+
+            if (remain > 0) {
+                m = m + " " + remain + " penny"
+            }
+
+            returnArray.push(m);
+        }
+
+        for(var i = 1; i <= numberOfDimeAndPennyCombos; i++){
+
+            var valueOfDimes = i * 10;
+
+            var tempPrefix = prefix  + i + " dime ";
+
+            var remain = value - valueOfDimes;
+
+            var f = addNickelAndPennyCombos(remain, tempPrefix);
+            var returnArray = returnArray.concat(f);
+        }
+
+        return returnArray;
+    };
+
+    var addNickelAndPennyCombos = function(value, prefix) {
+
+        var returnArray = [];
+
+        var numberOfNickleAndPennyCombos = Math.floor(value / 5);
+
+        for (var i = 1; i <= numberOfNickleAndPennyCombos; i++) {
+            var totalValueOfNickles = (i * 5);
+            var m = prefix + i + " nickel";
+
+            var remain = value - totalValueOfNickles;
+
+            if (remain > 0) {
+                m = m + " " + remain + " penny"
+            }
+
+            returnArray.push(m);
+        }
+
+        return returnArray;
     };
 }
