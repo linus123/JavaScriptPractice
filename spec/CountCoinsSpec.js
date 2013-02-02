@@ -56,7 +56,7 @@ describe("CountCoins", function(){
     });
 
     it("should return 13 when given 50", function () {
-        assertCoinCountForAmount(50, 13);
+        assertCoinCountForAmount(50, 49);
     });
 
     var assertCoinCountForAmount = function(coinCount, comboCount) {
