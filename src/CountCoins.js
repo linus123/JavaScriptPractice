@@ -28,10 +28,10 @@ function CountCoins(){
 
         var returnArray = [];
 
-        var numberOfQuarterAndPennyCombos = Math.floor(value / 25);
+        for (var i = 1; i <= Math.floor(value / 25); i++) {
 
-        for (var i = 1; i <= numberOfQuarterAndPennyCombos; i++) {
-            var totalValueOfQuarters = (i * 25);
+            var totalValueOfQuarters = i * 25;
+
             var m = prefix + i + " quarter";
 
             var remain = value - totalValueOfQuarters;
@@ -43,7 +43,10 @@ function CountCoins(){
             returnArray.push(m);
         }
 
-        for(var i = 1; i <= numberOfQuarterAndPennyCombos; i++){
+//        var foo = foofunc(value, prefix);
+//        var returnArray = returnArray.concat(foo);
+
+        for(var i = 1; i <= Math.floor(value / 25); i++){
 
             var valueOfQuarters = i * 25;
 
@@ -55,7 +58,7 @@ function CountCoins(){
             var returnArray = returnArray.concat(f);
         }
 
-        for(var i = 1; i <= numberOfQuarterAndPennyCombos; i++){
+        for(var i = 1; i <= Math.floor(value / 25); i++){
 
             var valueOfQuarters = i * 25;
 
@@ -65,6 +68,25 @@ function CountCoins(){
 
             var f = addNickelAndPennyCombos(remain, tempPrefix);
             var returnArray = returnArray.concat(f);
+        }
+
+        return returnArray;
+    };
+
+    var foofunc = function(value, prefix){
+
+        var returnArray = [];
+
+        for(var i = 1; i <= Math.floor(value / 25); i++){
+
+            var valueOfQuarters = i * 25;
+
+            var tempPrefix = prefix  + i + " quarter ";
+
+            var remain = value - valueOfQuarters;
+
+            var f = addNickelAndPennyCombos(remain, tempPrefix);
+            returnArray = returnArray.concat(f);
         }
 
         return returnArray;
@@ -111,7 +133,9 @@ function CountCoins(){
         var numberOfNickleAndPennyCombos = Math.floor(value / 5);
 
         for (var i = 1; i <= numberOfNickleAndPennyCombos; i++) {
+
             var totalValueOfNickles = (i * 5);
+
             var m = prefix + i + " nickel";
 
             var remain = value - totalValueOfNickles;
